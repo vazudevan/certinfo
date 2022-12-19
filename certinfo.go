@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	//cfg := tls.Config{MinVersion: tls.VersionTLS10, MaxVersion: tls.VersionTLS10}
+  //cfg := tls.Config{MinVersion: tls.VersionTLS10, MaxVersion: tls.VersionTLS10}
   // for converting TLS version int constants to string
 	var versionLookup = map[uint16]string{
 		tls.VersionTLS10: `VersionTLS1.0`,
@@ -34,13 +34,16 @@ func main() {
 	address := fmt.Sprintf("%s:%d", *host, *port)
 	conn, err := tls.Dial("tcp", address, nil)
 	if err != nil {
-		panic("Server doesn't support SSL certificate err: " + err.Error())
+		fmt.Printf("An Error occurred: " + err.Error())
 	}
 	defer conn.Close()
   //verify certificate
 	err = conn.VerifyHostname(*host)
 	if err != nil {
-		panic("Hostname doesn't match with certificate: " + err.Error())
+		fmt.Printf("Certificate Verification: Failed\n" + err.Error())
+	}
+	if conn == nil {
+		os.Exit(1)
 	}
 	fmt.Printf("Connection Info\n---------------\n")
 	fmt.Printf("Connection Protocol: %s \n", versionLookup[conn.ConnectionState().Version])
