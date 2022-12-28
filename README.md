@@ -10,11 +10,25 @@ The tool makes it simpler.
 
 # Usage
 ```
-Usage of certinfo:
-  -host string
-        FQDN of the server
-  -port int
-        Port number (default 443)
+NAME:
+   certinfo - TLS certificate info tool
+
+USAGE:
+   certinfo [global options] command [command options] [arguments...]
+
+VERSION:
+   1.1
+
+COMMANDS:
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --host value   FQDN of server to get certificate information
+   --port value   Port number (default: 443)
+   --tls value    Force client TLS version. Valid values are 1.0 to 1.3
+   --insecure     Ignore certificate errors (default: false)
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
 ```
 # Alternative
 
