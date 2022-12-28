@@ -17,7 +17,7 @@ import (
 func getCertInfo(c *cli.Context) error {
 	// exit if no host argument
 	if (c.String("host") == "") && (c.Args().First() == "") {
-		return errors.New("missing argument host")
+		return errors.New("missing arguments see `certinfo help` for details")
 	}
 	if (c.String("host") == "") && (c.Args().First() != "") {
 		_ = c.Set("host", c.Args().First())
