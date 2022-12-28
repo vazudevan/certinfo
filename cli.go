@@ -6,7 +6,7 @@ import (
 
 const appName = "certinfo"
 
-var appVersion = "undefined"
+var appVersion = "1.1"
 
 func newApp() *cli.App {
 	app := cli.NewApp()
