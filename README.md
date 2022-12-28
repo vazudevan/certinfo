@@ -40,3 +40,17 @@ e.g. Extracting SAN from certificate
 ```
 echo | openssl s_client -connect example.com:443 2>&1 | openssl x509 -noout -text |  awk -F, -v OFS="\n" '/DNS:/{gsub(/ *DNS:/, ""); $1=$1; print $0}'
 ```
+Limiting to specific client tls version
+```
+# tls 1.0
+echo | openssl s_client -tls1 -connect example.com:443 2>&1
+
+# tls 1.1
+echo | openssl s_client -tls1_1 -connect example.com:443 2>&1
+
+# tls 1.2
+echo | openssl s_client -tls1_2 -connect example.com:443 2>&1
+
+#tls 1.3
+echo | openssl s_client -tls1_3 -connect example.com:443 2>&1
+```
