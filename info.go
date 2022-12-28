@@ -65,8 +65,8 @@ func getCertInfo(c *cli.Context) error {
 	defer conn.Close()
 
 	err = conn.VerifyHostname(c.String("host"))
+	fmt.Printf("Certificate Verification\n------------------------\n")
 	if err != nil {
-		fmt.Printf("Certificate Verification\n------------------------\n")
 		fmt.Printf("%s\n\n", err.Error())
 	} else {
 		fmt.Printf("Verified OK\n\n")
