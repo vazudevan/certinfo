@@ -2,7 +2,7 @@ certinfo
 A tool to display server certificate details.  With an option to choose Client TLS version. 
 
 # Overview
-Openssl can be used to obtain the certificate info, however it needs one to remember openssl command options and quriks.
+Openssl can be used to obtain the certificate info, however it needs one to remember openssl command options.
 The tool makes it simpler.  
 
 `certinfo` is useful to check TLS Version supported by remote servers, you can also specify client TLS version to use.
